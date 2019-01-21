@@ -6,21 +6,35 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
 
 		<style type="text/css">
+			.grid-container{
+				display: grid;
+				grid-template-columns: 1fr, 1fr,1fr,1fr,1fr;
+				grid-template-rows: 1fr, 1fr, 1fr, 1fr,1fr;
+			}
 			.header {
 				padding:10px;
+				background-color: black;
+				color:white;
 			}
 
 			.content {
-				padding:10px;
+				display:grid;
+				padding-top: 1px;
 			}
 
 			.content > ul {
-				margin:0px 0px 0px -20px;
+				padding-right: 10px;
+				padding-top: 10px;
+				padding-bottom: 5px;
+				padding-left:30px;
+				margin:00px 00px 00px 00px;
+				list-style-type: square;
+				border: 1px solid black;
 			}
 		</style>
 	</head>
 	<body>
-		<div class="container">
+		<div class="grid-container">
 			<div class="header">
 				first
 			</div>
@@ -33,7 +47,7 @@
 			</div>
 		</div>
 
-		<div class="container">
+		<div class="grid-container">
 			<div class="header">
 				second
 			</div>
