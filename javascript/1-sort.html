@@ -7,7 +7,16 @@
 
 		<script type="text/javascript">
 			var functionSort = function(intInput) {
-				// sort intInput and return the sorted array
+				// sort intInput and return the sorted array;
+				for(var i = 0; i < intInput.length; i++){
+					for(var j = 1; j < intInput.length; j++){
+						if(intInput[j-1] > intInput[j]){
+							var temp = intInput[j-1];
+  						intInput[j-1] = intInput[j];
+  						intInput[j] = temp;
+						}
+					}
+				}
 
 				// note that like in c, an array is a reference to a continuous memory block
 				// while the input it is being passed by value, it points to the same memory block

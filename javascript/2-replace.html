@@ -10,7 +10,9 @@
 				// return strInput with 'quick' replaced by 'sly' and 'lazy' replaced by 'sharp', regardless of the case of the letters
 
 				// note that you will have to use a regexp for this task
-				// using strInput.split('quick').join('sly') is commonly suggested for doing string replacement
+				strInput = strInput.replace(/quick/ig, "sly");
+				strInput = strInput.replace(/lazy/ig, "sharp"); 
+				//var res2 = strInput.replace(/lazy/ig, "sharp");
 				// this will not work this exercise though, as the matching is required to be case insensitive
 
 				return strInput;
