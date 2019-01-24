@@ -6,29 +6,47 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
 
 		<script type="text/javascript">
-			var objectStrings = {};
+			var objectStrings ={
+			};
 
 			var functionInsert = function(strKey, strValue) {
-				// insert the property with strKey and strValue into objectStrings
+				objectStrings[strKey] = strValue;
+
 			};
 
 			var functionDelete = function(strKey) {
-				// remove the property with strKey from objectStrings
+					// remove the property with strKey from objectStrings
+					delete objectStrings[strKey];
 			};
 
 			var functionLookup = function(strKey) {
 				// return the strValue from objectStrings that is associated with strKey
+				for(var key in objectStrings)
+				{
+					if(objectStrings.hasOwnProperty(strKey)){
+							return objectStrings[strKey];
+					}
+					else{
+						return "";
+					}
+				}
 
 				// objectStrings might not contain strKey
 				// should this be the case, return an empty string
-
-				return '';
 			};
 
 			var functionKeys = function() {
-				// return a string of the concatenated strKey in objectStrings, separated by commas
 
-				return '';
+				// return a string of the concatenated strKey in objectStrings, separated by commas
+				var keys = [];
+				for(var key in objectStrings)
+				{
+					if(objectStrings.hasOwnProperty(key)){
+						keys.push(key);
+					}
+				}
+			var x = keys.join(", ");
+				return x;
 			};
 
 			functionInsert('hello', 'world');

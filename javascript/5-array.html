@@ -10,10 +10,16 @@
 
 			var functionInsert = function(intNumber) {
 				// insert intNumber into intArray
+				intArray.push(intNumber);
 			};
 
 			var functionDelete = function(intNumber) {
 				// remove the first occurrence of intNumber in intArray
+				for(var i = 0; i < intArray.length-1; ++i){
+					if(intArray[i] == intNumber){
+						intArray.splice(i,1);
+					}
+				}
 
 				// intArray might not contain intNumber
 				// the function does not have an effect in this case
@@ -21,17 +27,22 @@
 
 			var functionLookup = function(intIndex) {
 				// return the intNumber from intArray at intIndex, deleting the obtained intNumber
-
+				if(intIndex > intArray.length-1 || intIndex < 0){
+					return null;
+				}
+				else{
+					var x = intArray[intIndex];
+					intArray.splice(intIndex,1);
+					return x;
+				}
 				// intIndex might be out of bounds
 				// should this be the case, return null
-
-				return 0;
 			};
 
 			var functionValues = function() {
 				// return a string of the concatenated intNumber in intArray, separated by commas
-
-				return '';
+				var str1 = intArray.join(", ");
+				return str1;
 			};
 
 			functionInsert(1);

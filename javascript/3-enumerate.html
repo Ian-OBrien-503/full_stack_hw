@@ -7,15 +7,13 @@
 
 		<script type="text/javascript">
 			var functionEnumerate = function(dblInput) {
+
 				// return a string of the concatenated numbers in dblInput, separated by commas and with three digits after the decimal point
 				for (var i = 0; i < dblInput.length; i++) {
 					dblInput[i] = dblInput[i].toFixed(3);
 				}
-				for (var i = 0; i < dblInput.length; i++) {
-					dblInput[i] = "dblInput[i], ";
-				}
-
-				return x;
+				var str1 = dblInput.join(", ");
+				return str1;
 			}
 
 
