@@ -16,8 +16,9 @@
 		<script type="text/javascript">
 			var functionGet = function(strSelector) {
 				// determine whether the content of jQuery(strSelector) should be retrieved by using .val() or .text() and return this content
-
-				return '';
+					return jQuery(strSelector).val();
+					//var x = $(strSelector).val();
+					//return x;
 			};
 
 			var functionSet = function(strSelector, strContent) {
