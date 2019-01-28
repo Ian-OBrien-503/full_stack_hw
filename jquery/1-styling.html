@@ -42,7 +42,7 @@
 
 			var functionFixed = function(strSelector) {
 				// return whether jQuery(strSelector) has a fixed position
-				if(jQuery('strSelector').css("position") == "fixed")
+				if(jQuery(strSelector).css("position") === "fixed")
 					return true;
 				else
 					return false;
@@ -52,10 +52,10 @@
 			console.log(functionFixed('#third')); // expected: true
 
 			var functionClass = function(strSelector, strClass) {
-				if(".strSelector".hasClass("strClass"))
+				if(jQuery(strSelector).hasClass(strClass))
 					return true;
-				else;
-				return false;
+				else
+					return false;
 			};
 
 			console.log(functionClass('#first', 'first')); // expected: true
