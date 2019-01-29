@@ -6,19 +6,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
 	</head>
 	<body>
-		<input id="input" type="text" placeholder="input">
+		<input id="input" type="text" placeholder="input">input</input>
 		<br>
-		<input id="copy" type="button" value="copy">
+		<input id="copy" type="button" value="copy"></input>
 		<br>
 		<div id="output">output</div>
 
 		<script type="text/javascript">
 			// attach an onclick listener to document.getElementById('copy') that copies the content from document.getElementById('input') to document.getElementById('output')
-			document.getElementById('copy').addEventListener.click() = function func{
-				var str = document.getElementById('input').value;
-				document.getElementById('output').innterHTML = str;
+			document.getElementById("copy").addEventListener("click", myFunction);
 
-			}
+			function myFunction(){
+				var x = document.getElementById('input').value;
+  			document.getElementById('output').innerHTML = x;
+			};
 		</script>
 	</body>
 </html>

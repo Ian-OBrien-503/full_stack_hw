@@ -15,18 +15,17 @@
 
 		<script type="text/javascript">
 			var functionGet = function(strSelector) {
-				// determine whether the content of jQuery(strSelector) should be retrieved by using .val() or .text() and return this content
-				if(jQuery(strSelector).is("string"))
-					return jQuery(strSelector).text();
-				else {
-					return  jQuery(strSelector).val();
-				}
-			};
+					if(return $(strSelector).is('input'))
+					return $(strSelector).val();
+					else {
+						return $(strSelector).text();
+					}
 
+			};
 			var functionSet = function(strSelector, strContent) {
 				// determine whether the content of jQuery(strSelector) should be set by using .val() or .text() and set it to strContent
-			};
 
+			};
 			console.log(functionGet('#first')); // expected: 'first'
 			console.log(functionGet('#second')); // expected: 'second'
 			console.log(functionGet('#third')); // expected: 'third'

@@ -22,9 +22,15 @@
 		<div id="output"></div>
 
 		<script type="text/javascript">
+		// e in the function argument is the "event"
+		$('#output').on('click', myFunction(e){
+			var x = event.pageX - $(this).get(0).offset().left;
+			var y = event.pageY -  $(this).get(0).offset().top;
+			$("this").text(x + " - " + y);
+		});
 			// attach a click listener to jQuery('#output') that sets the text of jQuery('#output') to the relative position of where the click happened (format: 'x - y')
 			// you can get this relative position by using event.pageX / .pageY or jQuery(this).offset().left / .top (do not forget to add the event argument in the listener)
-			// for example, the text should be '0 - 0' when clicking the top left corner and '99 - 0' when clicking the top right corner
+			// for example, the text should be '0 - 0' when clicking the top left corner and '99 - 0' w(thhen clicking the top right corner
 		</script>
 	</body>
 </html>
