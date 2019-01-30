@@ -11,24 +11,22 @@
 			var functionPrint = function(intEpoch) {
 				// given intEpoch (an epoch time), return a string that represents the given date in the format expected by the given examples
 				var d = moment(intEpoch).format("dddd [the] Do [of] MMMM [in] YYYY")
-				var epoch = moment(intEpoch).format("YYYY, DD, MM");
-				var curr = moment().format("YYYY, DD, MM");
+				var epoch = moment(intEpoch).format("YYYY-MM-DD");
+				var curr = moment().format("YYYY-MM-DD");
 				var a = moment([epoch]);
 				var b = moment([curr]);
-				//var z = moment().valueOf();
-				//var test = a.diff(b, 'days');
+				var test = 7;
+				var test1 = 7;
 
-				if(a.isBefore(b))
-				{
-					test = moment([epoch]).fromNow();
+
+
+					test = moment(intEpoch).fromNow();
+					test1 = moment(intEpoch).toNow();
 					var x = moment(intEpoch).format("dddd [the] Do [of] MMMM [in] YYYY - ");
-					return x.concat(test);
-				}
-
-				// else
-				test = moment([epoch]).toNow();
-				var x = moment(intEpoch).format("dddd [the] Do [of] MMMM [in] YYYY - ");
-				return x.concat(test);
+					if(a.isBefore(b))
+						return x.concat(test);
+					else
+						return x.concat(test);
 
 			};
 
