@@ -10,8 +10,10 @@
 		<script type="text/javascript">
 			var functionParse = function(strDate) {
 				// given strDate, return the epoch time that is represented by this date string
-
-				return moment(strDate, 'TODO').valueOf();
+				var x = moment(strDate, 'DDDD - Do MMMM YYYY - HH:mm a').valueOf();
+				var y = moment().unix();
+				//return moment(strDate, 'TODO').valueOf();
+				return x;
 			};
 
 			console.log(functionParse('Sunday - 27th October 1974 - 11:04 AM')); // expected: 152129040000 (assuming pacific standard time)
