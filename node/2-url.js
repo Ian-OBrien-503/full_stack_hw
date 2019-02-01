@@ -38,7 +38,7 @@ var server = http.createServer(function(req, res) {
         res.writeHead(200, {
             'Content-Type': 'text/html'
         });
-        res.write('XXXXXXXXXXXXXXXXXXXXXXXXXXX');
+        res.write('X');
         res.end();
     }
 
@@ -61,15 +61,15 @@ server.listen(process.env.PORT||8080);
 // http://localhost:8080/test/world should return 'you have accessed "world" within test' in plain text
 
 // http://localhost:8080/attributes?hello=world&lorem=ipsum should return the following as html (row order might differ)
-   <!DOCTYPE html>
-   <html>
-    <body>
-       <table border="1">
-        <tr><td>hello</td><td>world</td></tr>
-        <tr><td>lorem</td><td>ipsum</td></tr>
-       </table>
-     </body>
-   </html>
+//   <!DOCTYPE html>
+//   <html>
+//    <body>
+//       <table border="1">
+//        <tr><td>hello</td><td>world</td></tr>
+//        <tr><td>lorem</td><td>ipsum</td></tr>
+//       </table>
+//     </body>
+//   </html>
 
 // http://localhost:8080/attributes?first=1&second=2&third=3 should return the following as html (row order might differ)
 //   <!DOCTYPE html>
