@@ -13,19 +13,22 @@
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 		<style type="text/css">
+
 			body {
 				padding-top:20px;
+				padding-left:10px;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="container">
 			<!-- use an inline form to accomplish the horizontal layout. -->
-<div class = "form-row">
+
+<div class = "form-inline">
 <div class="input-group">
 
-    <div class="input-group col-md-5">
-			<input type="text" class="form-control form-rounded" id="inlineFormInput" value="amount" aria-describedby="basic-addon1">
+    <div class="input-group mr-sm-2">
+			<input type="text" class="form-control form-rounded" id="inlineFormInput" placeholder="amount" aria-describedby="basic-addon1" style="color: #88000">
 			<div class="input-group-append">
 				<span class ="input-group-text">
 					<i class = "fa fa-usd"></i>
@@ -34,11 +37,11 @@
     </div>
 
 
-		<button class="input-group button btn-primary form-control col-md-1 ml--2 mr-2" type="button" name="button">
-			<i class = "fa fa-shopping-cart align"></i>
+		<button type = "submit" class="button btn-primary form-control form-rounded mr-sm-2" type="button" name="button">
+			<i class = "fa fa-shopping-cart"></i>
 		</button>
-		<button class="input-group button btn-primary form-control col-md-1" type="button" name="button">
-			<i class = "fa fa-trash align-center"></i>
+		<button type = "submit" class="button btn-primary form-control form-rounded" type="button" name="button">
+			<i class = "fa fa-trash"></i>
 		</button>
 
 

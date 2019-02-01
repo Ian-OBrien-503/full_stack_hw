@@ -10,15 +10,28 @@
 
 		<script type="text/javascript">
 			var functionCreate = function(strInput) {
-				// create a html table that represents the csv given in strInput set the content of the output div to this html table
-				// you can either create a string that represents the html and use innerHTML to set it or you can use createElement / appendChild
-				// should this function be called multiple times, the output div should only contain the table of the most recent call
+							var strTable = '';
 
-				document.getElementById('output').innerHTML = '';
-			};
+							{
+								var strRows = strInput.trim().split('\n');
 
-			functionCreate('a,b,c\n1,2,3\n'); // the new line at the end should not make a difference
-			
+								for (var intFor1 = 0; intFor1 < strRows.length; intFor1 += 1) {
+									var strColumns = strRows[intFor1].split(',');
+
+									strTable += '<tr>';
+
+									for (var intFor2 = 0; intFor2 < strColumns.length; intFor2 += 1) {
+										strTable += '<td>' + strColumns[intFor2] + '</td>';
+									}
+
+									strTable += '</tr>';
+								}
+							}
+
+							document.getElementById('output').innerHTML = '<table border="1">' + strTable + '</table>';
+						};
+				
+
 			// expected table for functionCreate('a,b\n'):
 			//   <table border="1">
 			//     <tr>
@@ -26,7 +39,7 @@
 			//       <td>b</td>
 			//     </tr>
 			//   </table>
-			
+
 			// expected table for functionCreate('a,b'):
 			//   <table border="1">
 			//     <tr>
@@ -34,7 +47,7 @@
 			//       <td>b</td>
 			//     </tr>
 			//   </table>
-			
+
 			// expected table for functionCreate('a,b,c\n1,2,3\n'):
 			//   <table border="1">
 			//     <tr>
@@ -48,7 +61,7 @@
 			//       <td>3</td>
 			//     </tr>
 			//   </table>
-			
+
 			// expected table for functionCreate('a,b,c\n1,2,3'):
 			//   <table border="1">
 			//     <tr>
