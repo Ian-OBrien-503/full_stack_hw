@@ -6,6 +6,10 @@ var querystring = require('querystring'); // do not change this line
 
 var server = http.createServer(function(req, res) {
 
+    var q = url.parse(req.url,true).pathname;
+    q = q.slice(6);
+
+
     // home page
     if (req.url === '/') {
         res.writeHead(200, {
@@ -15,35 +19,14 @@ var server = http.createServer(function(req, res) {
         res.end();
     }
 
-    // different route to /test/hello
-    else if (req.url === '/test/hello') {
+    // different route to /test/QSTRING
+    else if (1==1) {
         res.writeHead(200, {
             'Content-Type': 'text/plain'
         });
-        res.write('you have accessed "hello" within test');
+        res.write('you have accessed "' +q+'" within test');
         res.end();
     }
-
-    // different route to /test/world
-    else if (req.url === '/test/world') {
-        res.writeHead(200, {
-            'Content-Type': 'text/plain'
-        });
-        res.write('you have accessed "world" within test');
-        res.end();
-    }
-
-    // different route to /attributes?hello=world&lorem=ipsum
-    else if (req.url === '/attributes?hello=world&lorem=ipsum') {
-        res.writeHead(200, {
-            'Content-Type': 'text/html'
-        });
-        res.write('X');
-        res.end();
-    }
-
-
-
 
     // default case
     else {
