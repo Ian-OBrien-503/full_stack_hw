@@ -7,7 +7,10 @@ var querystring = require('querystring'); // do not change this line
 var server = http.createServer(function(req, res) {
 
     var q = url.parse(req.url,true).pathname;
-    q = q.slice(6);
+    var a = url.toString(req);
+    var rest= q.slice(6);
+    var first = q.substr(0,6);
+    var attr = a.substr(0,33);
 
 
     // home page
@@ -20,11 +23,20 @@ var server = http.createServer(function(req, res) {
     }
 
     // different route to /test/QSTRING
-    else if (1==1) {
+    else if (first == "/test/") {
         res.writeHead(200, {
             'Content-Type': 'text/plain'
         });
-        res.write('you have accessed "' +q+'" within test');
+        res.write('you have accessed "' +rest+'" within test');
+        res.end();
+    }
+
+    // different route to /attributes?xxxxxxxxxxxxxxxx
+    else if (attr === "http://localhost:8080/attributes?") {
+        res.writeHead(200, {
+            'Content-Type': 'text/plain'
+        });
+        res.write('you have accessed ' + attr + " within test");
         res.end();
     }
 
