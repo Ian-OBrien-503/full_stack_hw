@@ -7,7 +7,7 @@ var querystring = require('querystring'); // do not change this line
 var server = http.createServer(function(req, res) {
 
     var q = url.parse(req.url,true).pathname;
-    var a = new url.parse(req.url, true).search;
+    var a = url.parse(req.url, true);
 
     var rest= q.slice(6);
     var first = q.substr(0,6);
@@ -33,12 +33,11 @@ var server = http.createServer(function(req, res) {
     }
 
     // different route to /attributes?xxxxxxxxxxxxxxxx
-    else if (a == "?hello=world&lorem=ipsum") {
+    else if (a.search) {
         res.writeHead(200, {
-            'Content-Type': 'text/plain'
+            'Content-Type': 'text/html'
         });
-        var rest2 = a.slice(1);
-        res.write('you have accessed ' + rest2 + " within test");
+        res.write("");
         res.end();
     }
 
