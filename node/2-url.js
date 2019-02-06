@@ -6,12 +6,29 @@ var querystring = require('querystring'); // do not change this line
 
 var server = http.createServer(function(req, res) {
 
+    var count = 0;
     var q = url.parse(req.url,true).pathname;
-    var a = url.parse(req.url, true);
+    var a = url.parse(req.url);
+    var done = querystring.parse(a.query);
+    var str1 = "";
+    var str2 = "";
+    var str3 = "";
+    var str4 = "";
+    var str5 = "";
+    var str6 = "";
+    for(var i in done){
+        count++;
+        str1 = i;
+        str2 = done[i];
+        str3 = i-1;
+        str4 = done[i-1];
+    }
+    console.log(str1);
+
 
     var rest= q.slice(6);
     var first = q.substr(0,6);
-    //var rest2 = a.slice(1);
+
 
 
     // home page
@@ -33,11 +50,24 @@ var server = http.createServer(function(req, res) {
     }
 
     // different route to /attributes?xxxxxxxxxxxxxxxx
-    else if (a.search) {
+    else if (count == 2) {
         res.writeHead(200, {
             'Content-Type': 'text/html'
         });
-        res.write("");
+        res.write(
+  "<table border=\"1\"><tbody><tr><td>"+str1+"</td><td>"+str2+"</td></tr><tr><td>"+str3+"</td><td>"+str4+"</td></tr></tbody></table>"
+        );
+        res.end();
+    }
+
+    // different route to /attributes?xxxxxxxxxxxxxxxx
+    else if (count == 3) {
+        res.writeHead(200, {
+            'Content-Type': 'text/html'
+        });
+        res.write(
+  "<table border=\"1\"><tbody><tr><td>"+str1+"</td><td>"+str2+"</td></tr><tr><td>"+str3+"</td><td>"+str4+"</td></tr><tr><td>"+str5+"</td><td>"+str6+"</td></tr></tbody></table>"
+        );
         res.end();
     }
 

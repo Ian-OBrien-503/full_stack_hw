@@ -2,6 +2,33 @@
 
 var http = require('http'); // do not change this line
 
+var server = http.createServer(function(req, res) {
+  console.log(req.url.pathname)
+
+  var redir = "redirecting";
+  var a = req.url;
+
+  // home page
+  if (req.url === '/missing') {
+      res.writeHead(404, {'Content-Type': 'text/plain'});
+      res.write('your princess is in another castle');
+      res.end();
+  }
+
+  else if (req.url == a) {
+      res.writeHead(302, {
+        'Content-Type': 'text/plain',
+        'Content-Length': redir.length,
+        'Location': '/redirected'});
+      res.end(redir);
+  }
+
+});
+
+console.log('server listening on port 8080');
+server.listen(process.env.PORT||8080);
+
+
 // http://localhost:8080/missing should return a status code 404 with 'your princess is in another castle' in plain text
 
 // http://localhost:8080/redirect should redirect the request to '/redirected' by using 302 as the status code
