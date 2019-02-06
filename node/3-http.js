@@ -14,10 +14,7 @@ var server = http.createServer(function(req, res) {
   }
 
   else if (req.url === '/redirect') {
-      res.writeHead(302, {
-        'Content-Type': 'text/plain'
-        Location: '/redirected'});
-        res.write('/redirected');
+      res.writeHead(302, {Location: '/redirected'});
       res.end();
   }
 
