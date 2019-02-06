@@ -3,10 +3,8 @@
 var http = require('http'); // do not change this line
 
 var server = http.createServer(function(req, res) {
-  console.log(req.url.pathname)
 
   var redir = "redirecting";
-  var a = req.url;
 
   // home page
   if (req.url === '/missing') {
@@ -15,11 +13,11 @@ var server = http.createServer(function(req, res) {
       res.end();
   }
 
-  else if (req.url == a) {
+  else if (req.url === '/redirect') {
       res.writeHead(302, {
         'Content-Type': 'text/plain',
         'Content-Length': redir.length,
-        'Location': '/redirected'});
+        Location: '/redirected'});
       res.end(redir);
   }
 
