@@ -3,15 +3,21 @@
 var express = require('express'); // do not change this line
 var parser = require('body-parser'); // do not change this line
 
+
+
+
+
+server.listen(process.env.PORT||8080);
+
 // preface: use the body-parser middleware that helps you retrieve and parse the post data from the form
 
 // http://localhost:8080/form should return the form as shown below
 //   res.status(200);
-//   
+//
 //   res.set({
 //   	'Content-Type': 'text/html'
 //   });
-//   
+//
 //   res.write('<!DOCTYPE html>');
 //   res.write('<html>');
 //   	res.write('<body>');
@@ -22,7 +28,7 @@ var parser = require('body-parser'); // do not change this line
 //   		res.write('</form>');
 //   	res.write('</body>');
 //   res.write('</html>');
-//   
+//
 //   res.end();
 
 // http://localhost:8080/new should retrieve the post data, save the name / message (in a global variable) and return 'thank you for your message' in plain text

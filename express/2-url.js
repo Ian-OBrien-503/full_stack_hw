@@ -1,6 +1,43 @@
 'use strict';
 
 var express = require('express'); // do not change this line
+const server = express()
+
+server.get('/',function(req,res){
+  res.status(200);
+  res.type("text/plain")
+  res.send("you have accessed the root");
+  res.end()
+})
+
+server.get('/test/:parameter',function(req,res){
+  res.status(200);
+  var test = req.params.parameter;
+  res.type("text/plain")
+  res.send("you have accessed \""+ test +"\"\ within test");
+  res.end();
+})
+
+server.get('/attributes',function(req,res){
+  res.status(200);
+  var test = req.query;
+  res.type("text/html");
+  res.send(" <!DOCTYPE html><html><body><table border="1"> ");
+  for(let key in test ){
+  res.send(" <tr><td> " + key + " </td><td> " + test[key] + " </td></tr> ");
+        }
+  res.send(" </table><body></html> ");
+  res.end();
+})
+
+server.listen(process.env.PORT||8080);
+
+
+// req.params
+// req.query
+// req.body
+
+
 
 // http://localhost:8080/ should return 'you have accessed the root' in plain text
 

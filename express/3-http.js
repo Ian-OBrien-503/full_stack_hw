@@ -2,6 +2,11 @@
 
 var express = require('express'); // do not change this line
 
+
+
+
+
+server.listen(process.env.PORT||8080);
 // http://localhost:8080/missing should return a status code 404 with 'your princess is in another castle' in plain text
 
 // http://localhost:8080/redirect should redirect the request to '/redirected' by using 302 as the status code

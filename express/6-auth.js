@@ -4,6 +4,10 @@ var express = require('express'); // do not change this line
 var passport = require('passport'); // do not change this line
 var strategy = require('passport-http'); // do not change this line
 
+
+
+
+server.listen(process.env.PORT||8080);
 // preface: use the passport middleware and only grant the user "test" with the password "logmein" access
 
 // note: should the server restart, the browser will still technically be logged in since we are using the http basic access authentication which lets the browser submit the username and the password at each request
