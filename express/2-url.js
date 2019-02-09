@@ -5,15 +5,15 @@ const server = express()
 
 server.get('/',function(req,res){
   res.status(200);
-  res.type("text/plain")
+  res.type("text/plain");
   res.send("you have accessed the root");
-  res.end()
+  res.end();
 })
 
 server.get('/test/:parameter',function(req,res){
   res.status(200);
   var test = req.params.parameter;
-  res.type("text/plain")
+  res.type("text/plain");
   res.send("you have accessed \""+ test +"\"\ within test");
   res.end();
 })
@@ -23,9 +23,11 @@ server.get('/attributes',function(req,res){
   var test = req.query;
   res.type("text/html");
   res.send(" <!DOCTYPE html><html><body><table border="1"> ");
+
   for(let key in test ){
   res.send(" <tr><td> " + key + " </td><td> " + test[key] + " </td></tr> ");
         }
+
   res.send(" </table><body></html> ");
   res.end();
 })

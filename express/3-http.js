@@ -1,8 +1,45 @@
 'use strict';
 
 var express = require('express'); // do not change this line
+const server = express()
 
 
+server.get('/missing',function(req,res){
+  res.status(404);
+  res.type("text/plain");
+  res.send("your princess is in another castle");
+  res.end();
+})
+server.get('/redirect',function(req,res){
+  res.status(302);
+  res.redirect("/redirected");
+  res.end();
+})
+server.get('/redirected',function(req,res){
+  res.status(200);
+  res.end();
+})
+server.get('/cache',function(req,res){
+  res.status(200);
+  res.type("text/plain");
+  res.header('Cache-Control', 'max-age=86400');
+  res.send("cahce this resrouce");
+  res.end();
+})
+server.get('/cookie',function(req,res){
+  res.status(200);
+  res.type("text/plain");
+  res.header('Cache-Control', 'max-age=86400');
+  res.send("cahce this resrouce");
+  res.end();
+})
+server.get('/cache',function(req,res){
+  res.status(200);
+  res.type("text/plain");
+  res.cookie('hello=world');
+  res.send("i gave you a cookie");
+  res.end();
+})
 
 
 
