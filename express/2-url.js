@@ -22,13 +22,18 @@ server.get('/attributes',function(req,res){
   res.status(200);
   var test = req.query;
   res.type("text/html");
-  res.send(" <!DOCTYPE html><html><body><table border="1"> ");
+  res.write(" <!DOCTYPE html><html><body><table border='1'>");
 
   for(let key in test ){
-  res.send(" <tr><td> " + key + " </td><td> " + test[key] + " </td></tr> ");
+  res.write("<tr><td>" + key + "</td><td>" + test[key] + "</td></tr>");
         }
 
-  res.send(" </table><body></html> ");
+  res.write("</table></body></html>");
+  res.end();
+})
+
+server.get('/unexpected',function(req,res){
+  res.status(200);
   res.end();
 })
 

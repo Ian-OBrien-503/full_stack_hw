@@ -4,8 +4,6 @@ var http = require('http'); // do not change this line
 
 var server = http.createServer(function(req, res) {
 
-  var redir = "redirecting";
-
   // home page
   if (req.url === '/missing') {
       res.writeHead(404, {'Content-Type': 'text/plain'});
@@ -16,6 +14,40 @@ var server = http.createServer(function(req, res) {
   else if (req.url === '/redirect') {
       res.writeHead(302, {Location: '/redirected'});
       res.end();
+  }
+
+  else if (req.url === '/redirected') {
+      res.writeHead(200, {'Content-Type': 'text/plain'});
+      res.end();
+  }
+
+  else if (req.url === '/cache') {
+      res.writeHead(200, {
+        'Content-Type': 'text/plain',
+        'Cache-Control': 'max-age=86400'});
+        res.write('cache this resource');
+      res.end();
+  }
+
+  else if (req.url === '/cookie') {
+      res.writeHead(200, {
+        'Content-Type': 'text/plain',
+        'Set-Cookie': 'hello=world'});
+        res.write('i gave you a cookie');
+      res.end();
+  }
+
+  else if (req.url === '/check') {
+      res.writeHead(200, {
+        'Content-Type': 'text/plain',});
+
+        let cookies = req.headers.cookie;
+
+        if (cookies.indexOf('hello') == -1)
+          res.write('no');
+        else
+          res.write('yes');
+        res.end();
   }
 
 });

@@ -1,0 +1,22 @@
+{
+  "name": "homeworks",
+  "version": "1.0.0",
+  "description": "This project provides the framework for my full stack web development class in which the students are ought to solve various exercises that are automatically graded by a server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ian-OBrien-503/full_stack_hw.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ian-OBrien-503/full_stack_hw/issues"
+  },
+  "homepage": "https://github.com/Ian-OBrien-503/full_stack_hw#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

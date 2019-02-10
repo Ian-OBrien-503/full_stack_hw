@@ -16,13 +16,7 @@ var server = http.createServer(function(req, res) {
     var str4 = "";
     var str5 = "";
     var str6 = "";
-    for(var i in done){
-        count++;
-        str1 = i;
-        str2 = done[i];
-        str3 = i-1;
-        str4 = done[i-1];
-    }
+    let attrs = url.parse(req.url,true).query;
     console.log(str1);
 
 
@@ -54,8 +48,12 @@ var server = http.createServer(function(req, res) {
         res.writeHead(200, {
             'Content-Type': 'text/html'
         });
-        res.write(
-  "<table border=\"1\"><tbody><tr><td>"+str1+"</td><td>"+str2+"</td></tr><tr><td>"+str3+"</td><td>"+str4+"</td></tr></tbody></table>"
+        res.write("<table border=\"1\"><tbody>");
+        for(let key in attrs)
+        {
+        res.write("<table border=\"1\"><tbody><tr><td>"+key+"</td><td>"+attrs[key]+"</td></tr>")
+        }
+        res.write("</tbody>");
         );
         res.end();
     }

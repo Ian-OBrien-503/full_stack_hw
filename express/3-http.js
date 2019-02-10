@@ -23,21 +23,26 @@ server.get('/cache',function(req,res){
   res.status(200);
   res.type("text/plain");
   res.header('Cache-Control', 'max-age=86400');
-  res.send("cahce this resrouce");
+  res.send("cache this resource");
   res.end();
 })
 server.get('/cookie',function(req,res){
   res.status(200);
   res.type("text/plain");
-  res.header('Cache-Control', 'max-age=86400');
-  res.send("cahce this resrouce");
+  res.cookie('hello', 'world');
+  res.send("i gave you a cookie");
   res.end();
 })
-server.get('/cache',function(req,res){
+
+
+server.get('/check',function(req,res){
   res.status(200);
   res.type("text/plain");
-  res.cookie('hello=world');
-  res.send("i gave you a cookie");
+  var test = req.cookies;
+  if(test == 'hello')
+    res.send("yes");
+  else
+    res.send('no');
   res.end();
 })
 
