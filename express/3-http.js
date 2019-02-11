@@ -29,7 +29,7 @@ server.get('/cache',function(req,res){
 server.get('/cookie',function(req,res){
   res.status(200);
   res.type("text/plain");
-  res.cookie('hello', 'world');
+  res.set('Set-Cookie','hello=world');
   res.send("i gave you a cookie");
   res.end();
 })
@@ -38,11 +38,15 @@ server.get('/cookie',function(req,res){
 server.get('/check',function(req,res){
   res.status(200);
   res.type("text/plain");
-  var test = req.cookies;
-  if(test == 'hello')
-    res.send("yes");
-  else
+  if(req.headers.cookie){
+    if(req.headers.cookie.indexOf('hello')>=0)
+      res.send("yes");
+    else
+      res.send('no');
+  }
+  else {
     res.send('no');
+  }
   res.end();
 })
 
@@ -50,7 +54,6 @@ server.get('/check',function(req,res){
 
 server.listen(process.env.PORT||8080);
 // http://localhost:8080/missing should return a status code 404 with 'your princess is in another castle' in plain text
-
 // http://localhost:8080/redirect should redirect the request to '/redirected' by using 302 as the status code
 
 // http://localhost:8080/cache should return 'cache this resource' in plain text and set the cache max age to a day
