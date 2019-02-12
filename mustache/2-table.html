@@ -20,28 +20,27 @@
 				}
 
 			<<<<<<ONLY SHOW USERS IN TABLE WHERE BOOLVISIBLE == TRUE, SO GONNA NEED SOME LOGIC >>>>>>>>>>>>
+		-->
 
-			
-			use mustache to produce the output:
+
+
+
 				<table border="1">
 					<tr>
 						<th>name</th>
 						<th>gender</th>
 					</tr>
+					{{ #objectUsers}}
+					{{#boolVisible}}
 					<tr>
-						<td>max baum</td>
-						<td>male</td>
+						<td>{{strFirst}}  {{strLast}}</td>
+						<td>{{strGender}}</td>
 					</tr>
-					<tr>
-						<td>anna hahn</td>
-						<td>female</td>
-					</tr>
-					<tr>
-						<td>tim stein</td>
-						<td>male</td>
-					</tr>
+					{{/boolVisible}}
+					{{ /objectUsers}}
 				</table>
 
+		<!--
 			given a javascript object like:
 				{
 					'objectUsers': [

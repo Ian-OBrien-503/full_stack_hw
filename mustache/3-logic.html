@@ -29,33 +29,42 @@
 						<th>time</th>
 						<th>volume</th>
 					</tr>
-
-
-					// USE CODEPEN HTML TO CHEK AGAINST EXPECTED OTUPUT AND KEEP ON TRUCKING
-
+		-->
+		<table border="1">
+			<tbody>
+				<tr>
+					<th>name</th>
+					<th>value</th>
+					<th>change</th>
+					<th>time</th>
+					<th>volume</th>
+				</tr>
 					{{ #objectStocks}}
 					<tr>
 						<td>{{strName}}</td>
-
-						<td>{{dblChange}}
-							<script type="text/javascript">
-								console.log({{dblChange}}.toFixed(2));			// is this nessecary???
-								document.write({{dblChange}}.toFixed(2));
+						<td>
+								<script type="text/javascript">
+							document.write({{dblValue}}.toFixed(2));
 							</script>
 						</td>
-
-						// use moment for the time and use document write to get it to the page
-						<td>{{intTime}}
-							<script type="text/javascript">
-								document.write(moment( {{intTime}} ).format('YYYY.MM.DD - HH:mm:ss.'))
+						<td style="background-color:#ADC4A2;">
+								<script type="text/javascript">
+									document.write({{dblChange}}.toFixed(2));
 							</script>
 						</td>
-
-						<td>{{intVolume}}</td>
+						<td>
+							<script type="text/javascript">
+								document.write(moment( {{intTime}} ).format('YYYY.MM.DD - HH:mm:ss.SSS'));
+							</script>
+						</td>
+					<td>
+						{{intVolume}}
+					</td>
 					</tr>
-					{{ /objectStocks}}
-
-
+							{{ /objectStocks}}
+			</tbody>
+		</table>
+		<!--
 					<tr>
 						<td>AMD.NAS</td>
 						<td>6.73</td>
