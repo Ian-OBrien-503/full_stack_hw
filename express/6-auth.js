@@ -2,10 +2,33 @@
 
 var express = require('express'); // do not change this line
 var passport = require('passport'); // do not change this line
-var strategy = require('passport-http'); // do not change this line
+var strategy = require('passport-http').BasicStrategy; // do not change this line
+var server = express()
 
+passport.use(new strategy(
+  function(userid, password, done) {
+    User.findOne({ username: userid }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+      if (!user.password != password) { return done(null, false); }
+      return done(null, user);
+    });
+  }
+));
 
+server.get('/hello',
+  function(req,res){
+  res.status(200);
+  res.type("text/plain");
+  res.send('accessible to everyone');
+  res.end();
+})
 
+server.get('/*',
+passport.authenticate('basic', { session: false }),
+  function(req, res) {
+
+  });
 
 server.listen(process.env.PORT||8080);
 // preface: use the passport middleware and only grant the user "test" with the password "logmein" access

@@ -3,6 +3,11 @@
 var express = require('express'); // do not change this line
 var session = require('express-session'); // do not change this line
 
+var server = express();
+
+server.use(session({
+  'store': new session.MemoryStore();
+})
 
 
 
